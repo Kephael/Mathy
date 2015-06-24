@@ -126,6 +126,7 @@ public class Translator {
             case "thousand": number = 1000;
                 break;
             case "million": number = 1000000;
+                break;
             default: number = -9999999;
                 break;
         }
