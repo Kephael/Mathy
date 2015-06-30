@@ -57,7 +57,6 @@ public class MainActivity extends Activity {
 
     private void createCards() {
         mCards = new ArrayList<CardBuilder>();
-        MathEngine engine = new MathEngine();
         mCards.add(new CardBuilder(this, CardBuilder.Layout.TEXT)
                 .setText("Tap and answer the questions.")
                 .setFootnote("Questions are randomly generated"));
@@ -153,7 +152,7 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         MathEngine engine = new MathEngine();
         engine.addition();
-        expectedAnswer[numExecs] = engine.vals[2];
+        expectedAnswer[numExecs] = MathEngine.vals[2];
         Log.v("lastValue Input:", Integer.toString(expectedAnswer[numExecs]));
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, engine.display());
         startActivityForResult(intent, SPEECH_REQUEST);
