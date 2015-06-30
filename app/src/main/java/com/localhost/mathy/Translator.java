@@ -1,8 +1,10 @@
-// The Translator Class handles word representation of numbers, Glass voice input does not always provide a numeric representation for numbers
+/* The Translator Class handles word representation of numbers, Glass voice input does not always provide a numeric representation for numbers
+   and designed to handle application max value, 63 * 63 = 3969
+ */
+
 package com.localhost.mathy;
 
 import android.util.Log;
-
 import java.util.ArrayList;
 
 public class Translator {
@@ -17,7 +19,7 @@ public class Translator {
             list.add(y);
         }
         list.remove("and");
-        for (int i = 0; i < list.size(); i++) { // designed to handle application max value, 63 * 63 = 3969
+        for (int i = 0; i < list.size(); i++) {
             if (i == 0 && list.size() == 1) { // Glass voice input read as intended numeric representation should not go through custom functions
                 try{
                     value = Integer.parseInt(x);
@@ -40,23 +42,35 @@ public class Translator {
             else if (i == 2 && list.size() == 3) {  // i.e. one thousand two
                 value += englishToInt(list.get(i));
             }
-            else if (i == 1 && list.size() == 4) { // six thousand thirty one
+            else if (i == 1 && list.size() == 4) { // i.e six thousand thirty one
                 value *= englishToInt(list.get(i));
             }
             else if (i == 2 && list.size() == 4) { // six thousand thirty one
                 value += englishToInt(list.get(i));
             }
-            else if (i == 3 && list.size() == 4) { // six thousand thirty one
+            else if (i == 3 && list.size() == 4) { // i.e six thousand thirty one
                 value += englishToInt(list.get(i));
             }
-            else if (i == 1 && list.size() == 5) {// six thousand one hundred five
+            else if (i == 1 && list.size() == 5) {// i.e six thousand one hundred five
                 value *= englishToInt(list.get(i));
             }
-            else if (i == 2 && list.size() == 5) { // six thousand one hundred five
+            else if (i == 2 && list.size() == 5) { // i.e six thousand one hundred five
                 value += (englishToInt(list.get(i)) * englishToInt(list.get(++i)));
             }
-            else if (i == 4 && list.size() == 5) {
+            else if (i == 4 && list.size() == 5) { // i.e six thousand one hundred five
                 value += englishToInt(list.get(i));
+            }
+            else if (i == 1 && list.size() == 6) {// i.e six thousand one hundred thirty five
+                value *= englishToInt(list.get(i));
+            }
+            else if (i == 2 && list.size() == 6) { // i.e six thousand one hundred thirty five
+                value += (englishToInt(list.get(i)) * englishToInt(list.get(++i)));
+            }
+            else if (i == 4 && list.size() == 6) { // i.e six thousand one hundred thirty five
+                value += englishToInt(list.get(i));
+            }
+            else if (i == 5 && list.size() == 6) { // i.e six thousand one hundred thirty five
+                value =+ englishToInt(list.get(i));
             }
 
         }

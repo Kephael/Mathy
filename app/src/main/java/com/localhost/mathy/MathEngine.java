@@ -7,13 +7,13 @@ public class MathEngine {
     enum lastMode {
         ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION
     }
-    public static lastMode mode = null;
+    private static lastMode mode = null;
 
-    public void generate() {
+    private void generate(int limit) {
         Random engine = new Random();
         do {
-            vals[0] = Math.abs(engine.nextInt() % 64);
-            vals[1] = Math.abs(engine.nextInt() % 64);
+            vals[0] = Math.abs(engine.nextInt() % (limit + 1));
+            vals[1] = Math.abs(engine.nextInt() % (limit + 1));
         } while(vals[0] < vals[1] || vals[1] == 0); // prevents negative subtraction answers and divide by zero errors
     }
 
@@ -38,25 +38,25 @@ public class MathEngine {
     }
 
     public void addition() {
-        this.generate();
+        this.generate(63);
         vals[2] = vals[0] + vals[1];
         mode = lastMode.ADDITION;
     }
 
-    public void subtraction() {
-        this.generate();
+    private void subtraction() {
+        this.generate(63);
         vals[2] = vals[0] - vals[1];
         mode = lastMode.SUBTRACTION;
     }
 
-    public void multiplication() {
-        this.generate();
+    private void multiplication() {
+        this.generate(12);
         vals[2] = vals[0] * vals[1];
         mode = lastMode.MULTIPLICATION;
     }
 
-    public void division() {
-        this.generate();
+    private void division() {
+        this.generate(20);
         vals[2] = vals[0] / vals[1];
         mode = lastMode.DIVISION;
     }
