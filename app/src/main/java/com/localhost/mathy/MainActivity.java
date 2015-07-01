@@ -151,7 +151,7 @@ public class MainActivity extends Activity {
     private void displaySpeechRecognizer() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         MathEngine engine = new MathEngine();
-        engine.addition();
+        engine.equSelect();
         expectedAnswer[numExecs] = MathEngine.vals[2];
         Log.v("lastValue Input:", Integer.toString(expectedAnswer[numExecs]));
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, engine.display());

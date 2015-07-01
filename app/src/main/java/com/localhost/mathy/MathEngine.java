@@ -1,4 +1,6 @@
 package com.localhost.mathy;
+import android.util.Log;
+
 import java.util.Random;
 
 public class MathEngine {
@@ -37,7 +39,24 @@ public class MathEngine {
         return out;
     }
 
-    public void addition() {
+    public void equSelect() {
+        Random select = new Random();
+        int mode = select.nextInt(3); // random generates a number 0 - 3 in order to select problem mode
+        Log.v("select", "mode selection rolled " + mode);
+        switch (mode) {
+            case 0: this.addition();
+                break;
+            case 1: this.subtraction();
+                break;
+            case 2: this.division();
+                break;
+            case 3: this.multiplication();
+                break;
+            default: this.addition();
+        }
+    }
+
+    private void addition() {
         this.generate(63);
         vals[2] = vals[0] + vals[1];
         mode = lastMode.ADDITION;
