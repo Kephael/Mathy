@@ -53,6 +53,7 @@ public class MathEngine {
             case 3: this.multiplication();
                 break;
             default: this.addition();
+                break;
         }
     }
 
