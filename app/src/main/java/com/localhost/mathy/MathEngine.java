@@ -22,15 +22,16 @@ public class MathEngine {
     public String display() {
         String out;
         switch (mode) {
-            case ADDITION: 		  out = vals[0] + " + " + vals[1] + " = ";
+            case ADDITION: 		    out = vals[0] + " + " + vals[1] + " = ";
                 break;
-            case SUBTRACTION:     out = vals[0] + " - " + vals[1] + " = ";
+            case SUBTRACTION:       out = vals[0] + " - " + vals[1] + " = ";
                 break;
-            case MULTIPLICATION:  out = vals[0] + " * " + vals[1] + " = ";
+            case MULTIPLICATION:    out = vals[0] + " * " + vals[1] + " = ";
                 break;
-            case DIVISION:       out = vals[0] + " / " + vals[1] + " = ";
+            case DIVISION:          out = vals[0] + " / " + vals[1] + " = ";
                 break;
-            default:			  out = "Enum error";
+            default:			    out = "Enum error";
+                                    Log.wtf("enum error", "enum mismatch");
                 break;
         }
         for (int i = 0; i < vals.length; i++) {
