@@ -13,16 +13,6 @@ import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.google.android.glass.widget.CardScrollView;
 
-/**
- * An {@link Activity} showing a tuggable "Hello World!" card.
- * <p/>
- * The main content view is composed of a one-card {@link CardScrollView} that provides tugging
- * feedback to the user when swipe gestures are detected.
- * If your Glassware intends to intercept swipe gestures, you should set the content view directly
- * and use a {@link com.google.android.glass.touchpad.GestureDetector}.
- *
- * @see <a href="https://developers.google.com/glass/develop/gdk/touch">GDK Developer Guide</a>
- */
 public class Score extends Activity {
 
     /**
@@ -86,13 +76,10 @@ public class Score extends Activity {
         super.onPause();
     }
 
-    /**
-     * Builds a Glass styled "Hello World!" view using the {@link CardBuilder} class.
-     */
     private View buildView() {
         CardBuilder card = new CardBuilder(this, CardBuilder.Layout.TEXT);
 
-        card.setText("Your score is " + MainActivity.score);
+        card.setText("Your score is " + MainActivity.score + "/" + MainActivity.numPrompts);
         MainActivity.numExecs = 0; // resets score and number of executions after game is complete
         MainActivity.score = 0;
         return card.getView();

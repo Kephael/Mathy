@@ -21,16 +21,6 @@ import com.google.android.glass.widget.CardScrollView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * An {@link Activity} showing a tuggable "Hello World!" card.
- * <p/>
- * The main content view is composed of a one-card {@link CardScrollView} that provides tugging
- * feedback to the user when swipe gestures are detected.
- * If your Glassware intends to intercept swipe gestures, you should set the content view directly
- * and use a {@link com.google.android.glass.touchpad.GestureDetector}.
- *
- * @see <a href="https://developers.google.com/glass/develop/gdk/touch">GDK Developer Guide</a>
- */
 public class MainActivity extends Activity {
     private List<CardBuilder> mCards;
     private CardScrollView mCardScrollView;
@@ -173,7 +163,7 @@ public class MainActivity extends Activity {
                 Log.v("Input Correct", ("Expected: " + Integer.toString(expectedAnswer[numExecs - 1]) + " Got:" + Integer.toString(parsedText)));
                 score++;
                 mCards.add(new CardBuilder(this, CardBuilder.Layout.TEXT)
-                        .setText("Correct!"));
+                        .setText("Question " + numExecs + " Correct!"));
             }
             if (numExecs == numPrompts) { // done
                 startActivity(new Intent(this, Score.class));

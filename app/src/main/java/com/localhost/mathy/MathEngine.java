@@ -41,7 +41,7 @@ public class MathEngine {
 
     public void equSelect() {
         Random select = new Random();
-        int mode = select.nextInt(3); // random generates a number 0 - 3 in order to select problem mode
+        int mode = select.nextInt(4); // random generates a number 0 - 3 in order to select problem mode
         Log.v("select", "mode selection rolled " + mode);
         switch (mode) {
             case 0: this.addition();
