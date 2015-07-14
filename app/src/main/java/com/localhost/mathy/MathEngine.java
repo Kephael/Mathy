@@ -31,7 +31,7 @@ public class MathEngine {
             case DIVISION:          out = vals[0] + " / " + vals[1] + " = ";
                 break;
             default:			    out = "Enum error";
-                                    Log.wtf("enum error", "enum mismatch");
+                                    Log.wtf("enum error", "enum mismatch, got " + mode);
                 break;
         }
         for (int i = 0; i < vals.length; i++) {
