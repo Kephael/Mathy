@@ -141,6 +141,8 @@ public class Translator {
                 break;
             case "million": number = 1000000;
                 break;
+            case "for": number = 4; // handles four being interpreted as for
+                break;
             default: number = -9999999;
                 break;
         }
