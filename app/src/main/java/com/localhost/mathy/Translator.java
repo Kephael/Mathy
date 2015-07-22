@@ -9,10 +9,9 @@ import java.util.ArrayList;
 
 public class Translator {
 
-    public static int converted = -1;
      int parser(String x) {
         int value = 1;
-        x.trim();
+        x = x.trim();
         ArrayList<String> list = new ArrayList<String>();
         String[] split = x.split("\\s+"); // splits where whitespace is seen
         for (String y : split) {
