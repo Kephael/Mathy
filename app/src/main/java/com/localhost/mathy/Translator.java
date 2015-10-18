@@ -142,6 +142,8 @@ public class Translator {
                 break;
             case "for": number = 4; // handles four being interpreted as for
                 break;
+            case "to": number = 2; // fixes edge case
+                break;
             default: number = -9999999;
                 break;
         }
